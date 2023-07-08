@@ -2,6 +2,13 @@
 
 set -e
 
+debian=ftp://cdimage.debian.org/cdimage/release/current/amd64/iso-cd
+wget -r -nH --cut-dirs=5 --no-parent -A "*netinst*" -R  "*update*,*edu*,*mac*" $debian/
+VER=$(find ./debian-*  -name '*.iso'|grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')
+
+$1=debian-${VER}-amd64-netinst.iso
+
+
 function extract_iso() {
   echo "Extracting iso: $1..."
   mkdir isofiles
