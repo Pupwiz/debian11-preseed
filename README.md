@@ -1,11 +1,7 @@
 # Debian 12  Bookworm fully automatic minimal install through ISO remastering
 Script and configuration to remaster a debian netinst ISO for 100% unattended install
 
-Orginal script thanks to 
-
-Iván Stepaniuk
-
-istepaniuk
+Orginal script thanks to istepaniuk - See fork info.
 
 User - media 
 
