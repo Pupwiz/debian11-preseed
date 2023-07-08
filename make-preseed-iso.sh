@@ -6,13 +6,13 @@ debian=ftp://cdimage.debian.org/cdimage/release/current/amd64/iso-cd
 wget -r -nH --cut-dirs=5 --no-parent -A "*netinst*" -R  "*update*,*edu*,*mac*" $debian/
 VER=$(find ./debian-*  -name '*.iso'|grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')
 
-$1=debian-${VER}-amd64-netinst.iso
+DEB=debian-${VER}-amd64-netinst.iso
 
 
 function extract_iso() {
-  echo "Extracting iso: $1..."
+  echo "Extracting iso: $DEB..."
   mkdir isofiles
-  bsdtar -C isofiles -xf "$1"
+  bsdtar -C isofiles -xf "$DEB"
 }
 
 function add_preseed_to_initrd() {
@@ -58,8 +58,8 @@ function recompute_md5_checksum() {
 }
 
 function generate_new_iso_and_cleanup() {
-  local orig_iso="$1"
-  local new_iso="$2"
+  local orig_iso="$DEB"
+  local new_iso="preseed-$DEB"
 
   echo "Generating new iso: $new_iso..."
   dd if="$orig_iso" bs=1 count=432 of=mbr_template.bin
@@ -84,7 +84,7 @@ function generate_new_iso_and_cleanup() {
   rm -rf isofiles mbr_template.bin
 }
 
-orig_iso="$1"
+orig_iso="$DEB"
 new_iso="./preseed-$(basename $orig_iso)"
 
 extract_iso "$orig_iso"
