@@ -1,13 +1,15 @@
 # Debian 12  Bookworm fully automatic install through ISO remastering
 Script and configuration to remaster a debian netinst ISO for 100% unattended install
+Pulls current net install iso from Debian site automatically and adds custom preseed.
 
 Usage:
+
 1. Adapt the preseed.cfg file to your needs. (This one installs just SSH and sudo)
 2. Run:
 ```
 ./make-preseed-iso.sh 
 ```
-This will create a new ISO image named `preseed-debian-version-amd64-netinst.iso` that
+This will create a new ISO image named `preseed-debian-(version-amd64)-netinst.iso` that
 installs debian on the first available disk without intervention, not even a boot menu prompt.
 
 ### WARNING: This deletes stuff!
