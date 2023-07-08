@@ -1,5 +1,6 @@
 # Debian 12  Bookworm fully automatic install through ISO remastering
 Script and configuration to remaster a debian netinst ISO for 100% unattended install
+
 Pulls current net install iso from Debian site automatically and adds custom preseed.
 
 Usage:
