@@ -1,7 +1,15 @@
 # Debian 12  Bookworm fully automatic minimal install through ISO remastering
 Script and configuration to remaster a debian netinst ISO for 100% unattended install
 
-User - media Password = bookworm
+Orginal script thanks to 
+
+Iván Stepaniuk
+
+istepaniuk
+
+User - media 
+
+Password = bookworm
 
 Hostname - bookworm
 
