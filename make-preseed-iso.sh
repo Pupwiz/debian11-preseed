@@ -24,12 +24,12 @@ function add_preseed_to_initrd() {
   chmod -w isofiles/install.amd/ -R
 }
 
-function make_auto_the_default_isolinux_boot_option() {
+function make_install_the_default_isolinux_boot_option() {
   tmp_isolinux_cfg=$(mktemp --tmpdir isolinux.XXXXX)
 
-  echo "Setting 'auto' as default ISOLINUX boot entry..."
+  echo "Setting 'install' as default ISOLINUX boot entry..."
   sed 's/timeout 0/timeout 3/g' isofiles/isolinux/isolinux.cfg >$tmp_isolinux_cfg
-  echo "default auto" >>$tmp_isolinux_cfg
+  echo "default install" >>$tmp_isolinux_cfg
   chmod +w isofiles/isolinux/isolinux.cfg
   cat $tmp_isolinux_cfg >isofiles/isolinux/isolinux.cfg
   chmod -w isofiles/isolinux/isolinux.cfg
@@ -37,12 +37,12 @@ function make_auto_the_default_isolinux_boot_option() {
 }
 
 function make_auto_the_default_grub_boot_option() {
-  echo "Setting 'auto' as default GRUB boot entry..."
+  echo "Setting 'install' as default GRUB boot entry..."
   chmod +w isofiles/boot/grub/grub.cfg
   # The index for the grub menus is zero-based for the
   # Root menu, but 1-based for the rest, so 2>5 is the
   # second menu (advanced options) => fifth option (auto)
-  echo 'set default="2>5"' >>isofiles/boot/grub/grub.cfg
+  echo 'set default="2>1"' >>isofiles/boot/grub/grub.cfg
   echo "set timeout=3" >>isofiles/boot/grub/grub.cfg
   chmod -w isofiles/boot/grub/grub.cfg
 }
