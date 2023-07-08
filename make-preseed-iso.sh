@@ -24,7 +24,7 @@ function add_preseed_to_initrd() {
   chmod -w isofiles/install.amd/ -R
 }
 
-function make_install_the_default_isolinux_boot_option() {
+function make_auto_the_default_isolinux_boot_option() {
   tmp_isolinux_cfg=$(mktemp --tmpdir isolinux.XXXXX)
 
   echo "Setting 'install' as default ISOLINUX boot entry..."
