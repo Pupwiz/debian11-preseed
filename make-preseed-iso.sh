@@ -3,7 +3,7 @@
 set -e
 
 debian=ftp://cdimage.debian.org/cdimage/release/current/amd64/iso-cd
-wget -r -nH --cut-dirs=5 --no-parent -A "*netinst*" -R  "*update*,*edu*,*mac*" $debian/
+wget -r -nH -nc --cut-dirs=5 --no-parent -A "*netinst*" -R  "*update*,*edu*,*mac*" $debian/
 VER=$(find ./debian-*  -name '*.iso'|grep -Eo '[0-9]+\.[0-9]+\.[0-9]+')
 
 DEB=debian-${VER}-amd64-netinst.iso
