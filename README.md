@@ -1,5 +1,9 @@
-# Debian 12  Bookworm fully automatic install through ISO remastering
+# Debian 12  Bookworm fully automatic minimal install through ISO remastering
 Script and configuration to remaster a debian netinst ISO for 100% unattended install
+
+User - media Password = bookworm
+
+Hostname - bookworm
 
 Pulls current net install iso from Debian site automatically and adds custom preseed.
 
@@ -25,7 +29,7 @@ enter 40 times everytime I need to install debian.
 The location of the initrd is hardcoded to 'install.amd', this needs to be changed if you are using an iso
 for other than amd64.
 
-The configuration for the boot menu options is specific to bullseye in the case of a UEFI system because grub uses the position of the entry to specify the default option.
+The configuration for the boot menu options is specific to bookworm in the case of a UEFI system because grub uses the position of the entry to specify the default option.
 
 ### More on how to preseed
 * https://wiki.debian.org/DebianInstaller/Preseed
